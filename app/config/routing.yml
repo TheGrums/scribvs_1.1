@@ -1,3 +1,23 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+sb_user:
+    resource: "@SBUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sb_files:
+    resource: "@SBFileBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sb_calendar:
+    resource: "@SBCalendarBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sb_group:
+    resource: "@SBGroupBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sb_posts:
+    resource: "@SBPostBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sb_core:
+    resource: "@SBCoreBundle/Resources/config/routing.yml"
+    prefix:   /

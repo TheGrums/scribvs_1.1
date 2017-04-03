@@ -1,0 +1,4 @@
+services:
+#    sb_group.example:
+#        class: SB\GroupBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Jim+Nightshade" rel="stylesheet">
+  <meta charset="utf-8"></meta>
+  <style>
+    .row{
+      text-align:center;
+    }
+    .white-panel{
+      display:inline-block;
+      border:1px solid red;
+    }
+    .btn-navbar-group{
+      color: #333;
+      background-color: #fff;
+      border-color: #ccc;
+    }
+    .no-pad{
+      padding: 0px !important;
+    }
+    .no-marg{
+      margin: 0px !important;
+    }
+    .nav-group>.btn{
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        word-break: break-all;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto;
+    }
+    .navbar{
+      box-shadow: -1px -14px 20px 0px rgba(100,100,100,0.5);
+      border-radius:0px;
+    }
+    .navbar-inverse{
+      background-color:#454d75;
+      border-color:#8581cc;
+    }
+    .nav-item-glyph{
+      font-size:1.5em;
+    }
+    .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover{
+      background-color:transparent;
+      border-bottom:2px solid white;
+    }
+    .navbar>.navbar-form{
+      padding-top:3px;
+    }
+    .navbar-brand{
+      font-family: 'Jim Nightshade', cursive;
+      color:white !important;
+      font-size: 30px;
+      margin-top:5px;
+    }
+  </style>
+</head>
+<body>
+
+  {% block header %} {% endblock %}
+
+  <nav class="container-fluid navbar navbar-inverse no-marg">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">SCRIBVS</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#"><span class="glyphicon glyphicon-home nav-item-glyph"></span></a></li>
+      <li class="active"><a href="#"><span class="glyphicon glyphicon-random nav-item-glyph"></span></a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-th-list nav-item-glyph"></span></a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-folder-open nav-item-glyph"></span></a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-calendar nav-item-glyph"></span></a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <span class="glyphicon glyphicon-plus nav-item-glyph"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+      </li>
+    </ul>
+    <form class="navbar-form navbar-right" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+    </form>
+  </nav>
+
+  <div class="container">
+    {% block body %} {% endblock %}
+  </div>
+
+</body>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</html>

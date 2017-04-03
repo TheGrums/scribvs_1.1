@@ -1,0 +1,3 @@
+sb_files_homepage:
+    path:     /files/
+    defaults: { _controller: SBFileBundle:Default:index }

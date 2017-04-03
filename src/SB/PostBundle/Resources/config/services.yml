@@ -1,0 +1,4 @@
+services:
+#    sb_posts.example:
+#        class: SB\PostsBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

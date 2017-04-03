@@ -1,4 +1,4 @@
-scribvs_1.1
+Scribvs.com
 ===========
 
-A Symfony project created on March 28, 2017, 5:02 pm.
+Brand new scribvs.
