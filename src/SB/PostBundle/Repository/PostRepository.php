@@ -2,6 +2,8 @@
 
 namespace SB\PostBundle\Repository;
 
+use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
 /**
  * PostRepository
  *
@@ -10,4 +12,17 @@ namespace SB\PostBundle\Repository;
  */
 class PostRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function getMixFromGroups($groups){
+
+    $groupsIds = array();
+
+    foreach ($groups as $gr){
+      array_push($groupsIds,$gr->getId());
+    }
+
+    $qb = $this->createQueryBuilder('a');
+    $qb->innerJoin('a.group', 'c')->addSelect('c');
+    $qb->where($qb->expr()->in('c.id', $groupsIds));
+    return $qb->getQuery()->getResult();
+  }
 }

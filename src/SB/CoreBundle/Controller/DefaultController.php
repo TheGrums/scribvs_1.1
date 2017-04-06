@@ -22,7 +22,7 @@ class DefaultController extends Controller
 
   {
 
-    return $this->redirectToRoute('sb_posts_default');
+    return $this->redirectToRoute('sb_post_default');
 
   }
 

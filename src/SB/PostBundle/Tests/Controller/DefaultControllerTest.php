@@ -1,6 +1,6 @@
 <?php
 
-namespace SB\PostsBundle\Tests\Controller;
+namespace SB\PostBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

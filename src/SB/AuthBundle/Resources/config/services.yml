@@ -1,0 +1,4 @@
+services:
+#    sb_auth.example:
+#        class: SB\AuthBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

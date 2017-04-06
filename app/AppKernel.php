@@ -22,6 +22,8 @@ class AppKernel extends Kernel
             new SB\CalendarBundle\SBCalendarBundle(),
             new SB\FileBundle\SBFileBundle(),
             new SB\UserBundle\SBUserBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new SB\AuthBundle\SBAuthBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

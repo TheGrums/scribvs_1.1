@@ -1,0 +1,22 @@
+.container-fluid:nth-child(odd){
+  background-color: #e3e4ef;
+}
+.container-fluid:nth-child(even) {
+  background-color: #f1f1f7;
+}
+.form-vertical{
+  margin-top:15%;
+}
+.form-group{
+  text-align:left;
+}
+.container-fluid{
+  min-height:100vh;
+}
+#login-btn{
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  padding: 0px;
+  background-color: rgba(255,255,255,0.3);
+}

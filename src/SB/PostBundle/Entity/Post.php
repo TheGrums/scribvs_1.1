@@ -8,14 +8,21 @@ use Doctrine\ORM\Mapping as ORM;
  * Post
  *
  * @ORM\Table(name="post")
- * @ORM\Entity(repositoryClass="SB\PostsBundle\Repository\PostRepository")
+ * @ORM\Entity(repositoryClass="SB\PostBundle\Repository\PostRepository")
  */
 class Post
 {
     /**
-    * @ORM\ManyToOne(targetEntity="SB\PostBundle\Entity\Post",cascade={"persist"},inversedBy="user")
+    * @ORM\ManyToOne(targetEntity="SB\UserBundle\Entity\User",cascade={"persist"},inversedBy="posts")
+    * @ORM\JoinColumn(nullable=false)
     */
     private $author;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="SB\GroupBundle\Entity\ScribvsGroup",cascade={"persist"},inversedBy="posts")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $group;
 
     /**
      * @var int
@@ -197,7 +204,8 @@ class Post
      */
     public function getAuthorName()
     {
-        return $this->authorName;
+        if(isset($this->authorName))return $this->authorName;
+        else return $this->author->getWholeName();
     }
 
     /**
@@ -207,7 +215,7 @@ class Post
      *
      * @return Post
      */
-    public function setAuthor(\SB\PostBundle\Entity\Post $author = null)
+    public function setAuthor(\SB\UserBundle\Entity\User $author = null)
     {
         $this->author = $author;
 
@@ -222,5 +230,29 @@ class Post
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Set group
+     *
+     * @param \SB\GroupBundle\Entity\ScribvsGroup $group
+     *
+     * @return Post
+     */
+    public function setGroup(\SB\GroupBundle\Entity\ScribvsGroup $group)
+    {
+        $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * Get group
+     *
+     * @return \SB\GroupBundle\Entity\ScribvsGroup
+     */
+    public function getGroup()
+    {
+        return $this->group;
     }
 }

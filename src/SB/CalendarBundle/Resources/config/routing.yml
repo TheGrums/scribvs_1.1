@@ -1,3 +1,3 @@
 sb_calendar_homepage:
-    path:     /calendar/
+    path:     /
     defaults: { _controller: SBCalendarBundle:Default:index }

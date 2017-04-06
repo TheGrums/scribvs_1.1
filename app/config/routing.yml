@@ -1,22 +1,26 @@
-sb_user:
-    resource: "@SBUserBundle/Resources/config/routing.yml"
+sb_auth:
+    resource: "@SBAuthBundle/Resources/config/routing.yml"
     prefix:   /
+
+#sb_user:
+#    resource: "@SBUserBundle/Resources/config/routing.yml"
+#    prefix:   /
 
 sb_files:
     resource: "@SBFileBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /files/
 
 sb_calendar:
     resource: "@SBCalendarBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /calendar/
 
 sb_group:
     resource: "@SBGroupBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /group/
 
 sb_posts:
     resource: "@SBPostBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /posts/
 
 sb_core:
     resource: "@SBCoreBundle/Resources/config/routing.yml"

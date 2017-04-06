@@ -1,3 +1,3 @@
 sb_group_homepage:
-    path:     /group/
+    path:     /
     defaults: { _controller: SBGroupBundle:Default:index }

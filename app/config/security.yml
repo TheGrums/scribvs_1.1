@@ -1,11 +1,22 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/security.html
 security:
+    role_hierarchy:
+        ROLE_MODERATOR:   ROLE_USER
+        ROLE_SUPER_MODERATOR: [ROLE_MODERATOR, ROLE_USER]
+        ROLE_ADMIN: [ROLE_MODERATOR, ROLE_USER, ROLE_SUPER_MODERATOR]
+        ROLE_MASTER: [ROLE_ADMIN, ROLE_USER, ROLE_MODERATOR, ROLE_SUPER_MODERATOR, OLE_ALLOWED_TO_SWITCH]
 
-    # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        in_memory:
-            memory: ~
+        main:
+            entity:
+                class:    SB\UserBundle\Entity\User
+                property: username
+
+
+    encoders:
+        Symfony\Component\Security\Core\User\User: sha512
+        SB\UserBundle\Entity\User: sha512
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -14,11 +25,19 @@ security:
             security: false
 
         main:
-            anonymous: ~
-            # activate different ways to authenticate
-
-            # http_basic: ~
-            # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+            pattern: ^/
+            anonymous: true
+            provider: main
+            form_login:
+                login_path: welcome
+                check_path: login_check
+            logout:
+                path: logout
+                target: /
+            remember_me:
+                secret: "%secret%"
+                lifetime: 604800
+                always_remember_me: true
+    access_control:
+        - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, role: ROLE_USER }

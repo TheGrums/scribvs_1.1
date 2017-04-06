@@ -1,25 +1,18 @@
 {% extends "SBCoreBundle::layout.html.twig" %}
 {% block header %}
   <header class="container-fluid no-pad no-marg">
-    <div class="btn-group btn-group-justified nav-group">
-      <a href="#" class="btn btn-default active">Général</a>
-      <a href="#" class="btn btn-default">Geographie</a>
-      <a href="#" class="btn btn-default">Immersion</a>
-      <a href="#" class="btn btn-default">Augustophe</a>
-      <a href="#" class="btn btn-default">Geo Imm 3EF</a>
-      <a href="#" class="btn btn-default">Mathematiques</a>
-      <a href="#" class="btn btn-default">Geographie</a>
-      <a href="#" class="btn btn-default">Immersion</a>
-    </div>
-    <div class="btn-group btn-group-justified nav-group">
-      <a href="#" class="btn btn-default">Geo Imm 3EF</a>
-      <a href="#" class="btn btn-default">Mathematiques</a>
-      <a href="#" class="btn btn-default">Geographie</a>
-      <a href="#" class="btn btn-default">Mathematiques</a>
-      <a href="#" class="btn btn-default">Geographie</a>
-      <a href="#" class="btn btn-default">Immersion</a>
-      <a href="#" class="btn btn-default">Augustophe</a>
-    </div>
+     <div class="btn-group btn-group-justified nav-group">
+       <a href="{{ path('sb_post_default') }}" class="btn btn-default {% if not curr_group is defined %} active {% endif %}">Général</a>
+       {% set randomness = 4+random(3) %}
+       {% for group in groups %}
+         {% if(loop.index0==randomness) %}
+              </div>
+              <div class="btn-group btn-group-justified nav-group">
+             {% set randomness = 4+random(4) %}
+         {% endif %}
+         <a href="{{ path('sb_post_bygroup', {'id': group.id}) }}" class="btn btn-default active">{{group.name}}</a>
+       {% endfor %}
+      </div>
   </header>
 {% endblock %}
 
@@ -27,7 +20,27 @@
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
       <div class="container-fluid no-pad no-marg">
-
+        <div class="row">
+          <div class="col-xs-12">
+            {% for post in postlist %}
+              <div class="container-fluid no-pad no-marg">
+                <div class="row">
+                  <div class="col-xs-12 post">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        {{post.authorName}}<br />
+                        <span style="font-size:11px;">{{post.postDate|date('d/m h:i')}}</span>
+                      </div>
+                      <div class="panel-body">
+                        {{post.content}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
       </div>
     </div>
   </div>

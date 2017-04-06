@@ -1,3 +1,6 @@
-sb_posts_default:
-    path:     /posts/
+sb_post_default:
+    path:     /
+    defaults: { _controller: SBPostBundle:Default:index }
+sb_post_bygroup:
+    path:     /{id}
     defaults: { _controller: SBPostBundle:Default:index }
